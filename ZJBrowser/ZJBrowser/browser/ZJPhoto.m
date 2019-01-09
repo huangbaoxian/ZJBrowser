@@ -10,4 +10,18 @@
 
 @implementation ZJPhoto
 
+- (instancetype)initWithImage:(UIImage *)image {
+    if (self = [super init]) {
+        _image = image;
+    }
+    return self;
+}
+
+- (instancetype)initWithImageUrl:(NSString *)imageUrl {
+    if (self = [super init]) {
+        _imageUrl = imageUrl;
+    }
+    return self;
+}
+
 @end

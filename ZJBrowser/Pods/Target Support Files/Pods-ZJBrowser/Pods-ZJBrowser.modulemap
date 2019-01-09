@@ -1,0 +1,6 @@
+framework module Pods_ZJBrowser {
+  umbrella header "Pods-ZJBrowser-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -7,6 +7,9 @@
 //
 
 #import "RootViewController.h"
+#import "ZJPhotoBrowser.h"
+#import "ZJPhoto.h"
+
 
 @interface RootViewController ()<UITableViewDataSource, UITableViewDelegate>
 
@@ -20,9 +23,29 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor whiteColor];
     // Do any additional setup after loading the view.
-    [self initTableView];
+//    [self initTableView];
 }
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    NSArray *array = @[@"http://www.pptbz.com/pptpic/UploadFiles_6909/201211/2012111719294197.jpg",
+                       @"http://s14.sinaimg.cn/mw690/0070m3m6zy7oc0bQINvbd&690",
+                       @"http://pic24.nipic.com/20121010/3798632_184253198370_2.jpg"
+                       ];
+    NSMutableArray *itemArray = [NSMutableArray array];
+    for (NSString *str in array) {
+        ZJPhoto *photo = [[ZJPhoto alloc] initWithImageUrl:str];
+        [itemArray addObject:photo];
+    }
+    
+    ZJPhotoBrowser *vc = [[ZJPhotoBrowser alloc] init];
+    [vc updateZJBrowserWithPhotoArray:itemArray];
+    [self.navigationController pushViewController:vc animated:YES];
+    [vc reloadDataBrowser];
+    
+}
+
 #pragma mark - tableDelegate source
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

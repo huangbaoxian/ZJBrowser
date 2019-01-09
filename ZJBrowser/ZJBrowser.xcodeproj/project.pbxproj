@@ -16,9 +16,15 @@
 		810E274C21E5E74100C570FC /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 810E274B21E5E74100C570FC /* RootViewController.m */; };
 		810E275021E5EA1600C570FC /* ZJPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 810E274F21E5EA1600C570FC /* ZJPhoto.m */; };
 		810E275321E5EA4400C570FC /* ZJPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 810E275221E5EA4400C570FC /* ZJPhotoBrowser.m */; };
+		810E275521E5EEBF00C570FC /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 810E275421E5EEBF00C570FC /* Podfile */; };
+		810E275821E5F8DC00C570FC /* ZJBrowserCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 810E275721E5F8DC00C570FC /* ZJBrowserCollectionCell.m */; };
+		9E241B92E8C03F7859C07845 /* Pods_ZJBrowser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 137FFBA9018A62348493EDFD /* Pods_ZJBrowser.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		137FFBA9018A62348493EDFD /* Pods_ZJBrowser.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZJBrowser.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		45A1B7344C3D95394040D39B /* Pods-ZJBrowser.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZJBrowser.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZJBrowser/Pods-ZJBrowser.release.xcconfig"; sourceTree = "<group>"; };
+		4817018A1F9641A0560A22FE /* Pods-ZJBrowser.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZJBrowser.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZJBrowser/Pods-ZJBrowser.debug.xcconfig"; sourceTree = "<group>"; };
 		810E273121E5E72900C570FC /* ZJBrowser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZJBrowser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		810E273421E5E72900C570FC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		810E273521E5E72900C570FC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -35,6 +41,9 @@
 		810E274F21E5EA1600C570FC /* ZJPhoto.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZJPhoto.m; sourceTree = "<group>"; };
 		810E275121E5EA4400C570FC /* ZJPhotoBrowser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZJPhotoBrowser.h; sourceTree = "<group>"; };
 		810E275221E5EA4400C570FC /* ZJPhotoBrowser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZJPhotoBrowser.m; sourceTree = "<group>"; };
+		810E275421E5EEBF00C570FC /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		810E275621E5F8DC00C570FC /* ZJBrowserCollectionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZJBrowserCollectionCell.h; sourceTree = "<group>"; };
+		810E275721E5F8DC00C570FC /* ZJBrowserCollectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZJBrowserCollectionCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,17 +51,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E241B92E8C03F7859C07845 /* Pods_ZJBrowser.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0DF2A9D596981DF42FEB757E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4817018A1F9641A0560A22FE /* Pods-ZJBrowser.debug.xcconfig */,
+				45A1B7344C3D95394040D39B /* Pods-ZJBrowser.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		0FFA8F6CC6F7BCCC006F8390 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				137FFBA9018A62348493EDFD /* Pods_ZJBrowser.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		810E272821E5E72900C570FC = {
 			isa = PBXGroup;
 			children = (
+				810E275421E5EEBF00C570FC /* Podfile */,
 				810E273321E5E72900C570FC /* ZJBrowser */,
 				810E273221E5E72900C570FC /* Products */,
+				0DF2A9D596981DF42FEB757E /* Pods */,
+				0FFA8F6CC6F7BCCC006F8390 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -90,6 +120,8 @@
 				810E274F21E5EA1600C570FC /* ZJPhoto.m */,
 				810E275121E5EA4400C570FC /* ZJPhotoBrowser.h */,
 				810E275221E5EA4400C570FC /* ZJPhotoBrowser.m */,
+				810E275621E5F8DC00C570FC /* ZJBrowserCollectionCell.h */,
+				810E275721E5F8DC00C570FC /* ZJBrowserCollectionCell.m */,
 			);
 			path = browser;
 			sourceTree = "<group>";
@@ -101,9 +133,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 810E274721E5E72A00C570FC /* Build configuration list for PBXNativeTarget "ZJBrowser" */;
 			buildPhases = (
+				6F18BA4F96C780E7B38164CF /* [CP] Check Pods Manifest.lock */,
 				810E272D21E5E72900C570FC /* Sources */,
 				810E272E21E5E72900C570FC /* Frameworks */,
 				810E272F21E5E72900C570FC /* Resources */,
+				52A0EA44DB9C7C21D8C1A9B8 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -153,11 +187,57 @@
 			files = (
 				810E274121E5E72A00C570FC /* LaunchScreen.storyboard in Resources */,
 				810E273E21E5E72A00C570FC /* Assets.xcassets in Resources */,
+				810E275521E5EEBF00C570FC /* Podfile in Resources */,
 				810E273C21E5E72900C570FC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		52A0EA44DB9C7C21D8C1A9B8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-ZJBrowser/Pods-ZJBrowser-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
+				"${BUILT_PRODUCTS_DIR}/Reachability/Reachability.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ZJBrowser/Pods-ZJBrowser-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6F18BA4F96C780E7B38164CF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ZJBrowser-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		810E272D21E5E72900C570FC /* Sources */ = {
@@ -170,6 +250,7 @@
 				810E274421E5E72A00C570FC /* main.m in Sources */,
 				810E274C21E5E74100C570FC /* RootViewController.m in Sources */,
 				810E273621E5E72900C570FC /* AppDelegate.m in Sources */,
+				810E275821E5F8DC00C570FC /* ZJBrowserCollectionCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -246,7 +327,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -299,7 +380,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -309,6 +390,7 @@
 		};
 		810E274821E5E72A00C570FC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4817018A1F9641A0560A22FE /* Pods-ZJBrowser.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -326,6 +408,7 @@
 		};
 		810E274921E5E72A00C570FC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 45A1B7344C3D95394040D39B /* Pods-ZJBrowser.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

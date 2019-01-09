@@ -7,11 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
-
-NS_ASSUME_NONNULL_BEGIN
+#import <UIKit/UIKit.h>
 
 @interface ZJPhoto : NSObject
 
+@property (nonatomic, strong) UIImage *image;
+@property (nonatomic, strong) NSString *imageUrl;
+
+- (instancetype)initWithImage:(UIImage *)image;
+- (instancetype)initWithImageUrl:(NSString *)imageUrl;
+
+
 @end
 
-NS_ASSUME_NONNULL_END
+
