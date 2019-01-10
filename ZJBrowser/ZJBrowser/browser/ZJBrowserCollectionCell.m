@@ -10,6 +10,7 @@
 #import <Masonry/Masonry.h>
 #import "ZJPhoto.h"
 #import "UIImageView+WebCache.h"
+#import "UIImage+ZJScale.h"
 
 @interface ZJBrowserCollectionCell ()<UIScrollViewDelegate>
 
@@ -21,8 +22,7 @@
 @property (nonatomic, assign) CGFloat mainScreenWidth;
 @property (nonatomic, assign) CGFloat mainScreenHeight;
 
-@property (nonatomic, assign) CGFloat realImageHeight;
-@property (nonatomic, assign) CGFloat realImageWidth;
+@property (nonatomic, assign) CGRect showImageFrame;
 
 
 @end
@@ -43,15 +43,18 @@
 
 - (void)loadZJPhoto:(ZJPhoto *)photo screenWidth:(CGFloat)width screenHeight:(CGFloat)height
  {
-    
-  
-    self.scollView.frame = CGRectMake(0, 0, width, height);
-    self.scollView.contentSize = CGSizeMake(width, height);
      
-    self.showView.frame = CGRectMake((width - self.realImageWidth)/2 , (height - self.realImageHeight)/2 , self.realImageWidth, self.realImageHeight);
+     
+     self.scollView.frame = CGRectMake(0, 0, width, height);
+     self.scollView.contentSize = CGSizeMake(width, height);
+     self.showView.frame = self.showImageFrame;
+   
+     self.mainScreenWidth = width;
+     self.mainScreenHeight = height;
      self.scollView.zoomScale = 1.0;
-    self.mainScreenWidth = width;
-    self.mainScreenHeight = height;
+//     self.scollView.minimumZoomScale = 1.0;
+//     self.scollView.maximumZoomScale = 1.0;
+//     self.scollView.maximumZoomScale = 3.0;
    
     
     if (photo.image) {
@@ -70,41 +73,18 @@
             });
         } completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
             [weakSelf updateShowImageSize:image];
+           
         }];
     }
 }
 
 
 - (void)updateShowImageSize:(UIImage *)image {
-    
-    if (image.size.width > image.size.height) {
-        //已宽度为主
-        CGFloat realHeight = 0;
-        if (image.size.width > self.mainScreenWidth) {
-            //超过屏幕，需要计算
-            CGFloat realHeight = self.mainScreenWidth / image.size.width *  image.size.height;
-            self.showView.frame = CGRectMake(0, (self.mainScreenHeight - realHeight)/2, self.mainScreenWidth, realHeight);
-        }else {
-            realHeight = image.size.width;
-            self.showView.frame = CGRectMake((self.mainScreenWidth - image.size.width)/2, (self.mainScreenHeight - image.size.height)/2, image.size.width, image.size.height);
-        }
-    }else {
-        //以高度为主
-        CGFloat realWidth = 0;
-        if (image.size.height > self.mainScreenHeight) {
-            realWidth = self.mainScreenHeight / image.size.height *  image.size.width;
-            self.showView.frame = CGRectMake((self.mainScreenWidth - realWidth)/2, 0, realWidth, self.mainScreenHeight);
-        }else {
-            self.showView.frame = CGRectMake((self.mainScreenWidth - image.size.width)/2, (self.mainScreenHeight - image.size.height)/2, image.size.width, image.size.height);
-        }
-    }
+    CGRect showFrame = [image imageRectSizeWithScreenWidth:self.mainScreenWidth screenHeight:self.mainScreenHeight];
     self.showView.image = image;
-    self.realImageWidth = self.showView.frame.size.width;
-    self.realImageHeight = self.showView.frame.size.height;
-    
+    self.showView.frame = showFrame;
+    self.showImageFrame = showFrame;
 }
-
-
 
 - (void)creatSubView {
     [self.contentView addSubview:self.scollView];
@@ -165,7 +145,6 @@
 - (UIImageView *)showView {
     if (!_showView) {
         _showView = [[UIImageView alloc] init];
-//        _showView.contentMode = UIViewContentModeScaleAspectFit;
     }
     return _showView;
 }

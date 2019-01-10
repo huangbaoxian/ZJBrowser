@@ -22,6 +22,9 @@
 
 @property (nonatomic, assign) CGFloat screenWidth;
 @property (nonatomic, assign) CGFloat screenHeight;
+@property (nonatomic,assign)  UIDeviceOrientation currentOrientation;
+@property (nonatomic,assign)  BOOL isRotate;// 判断是否正在切换横竖屏
+@property (nonatomic, assign) BOOL isLandScape;
 
 
 @end
@@ -38,6 +41,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.automaticallyAdjustsScrollViewInsets = NO;
     [self initCollectionView];
     
     // Do any additional setup after loading the view.
@@ -57,9 +61,8 @@
 - (void)initCollectionView {
     self.view.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.container];
-    [self.container mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.trailing.top.bottom.equalTo(self.view);
-    }];
+    self.container.frame = self.view.bounds;
+    
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
     flowLayout.minimumLineSpacing = 0;
     // 布局方式改为从上至下，默认从左到右
@@ -80,20 +83,21 @@
     _collectionView.backgroundColor = [UIColor whiteColor];
     [self.container addSubview:self.collectionView];
   
-    [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.trailing.top.bottom.equalTo(self.container);
-    }];
-
+    self.collectionView.frame = self.container.bounds;
     
     [self.collectionView reloadData];
+    
+     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(deviceOrientationDidChange:) name:UIDeviceOrientationDidChangeNotification object:nil];
 }
 
 #pragma mark UIColectionViewDelegate
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     ZJBrowserCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ZJBrowserCollectionCell" forIndexPath:indexPath];
+    NSLog(@"indexPath.row : %d", indexPath.row);
     if(cell)
     {
+       
         if (self.dataArray.count > indexPath.row) {
             [cell loadZJPhoto:self.dataArray[indexPath.row] screenWidth:self.screenWidth screenHeight:self.screenHeight];
         }
@@ -109,21 +113,55 @@
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (self.isLandScape) {
+        return CGSizeMake(self.screenHeight, self.screenWidth);
+    }
     return CGSizeMake(self.screenWidth, self.screenHeight);
 }
 
+#pragma mark Orientation Method
 
 
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)deviceOrientationDidChange:(NSNotification *)notification
+{
+    UIDeviceOrientation orientation = [UIDevice currentDevice].orientation;
+    
+    CGRect backViewFrame ;
+    if(orientation == UIDeviceOrientationPortrait || orientation == UIDeviceOrientationLandscapeLeft || orientation == UIDeviceOrientationLandscapeRight)
+    {
+        _isRotate = YES;
+       
+        _currentOrientation = orientation;
+        if(_currentOrientation == UIDeviceOrientationPortrait)
+        {
+            self.isLandScape = NO;
+             backViewFrame = CGRectMake(0, 0, self.screenWidth, self.screenHeight);
+            [UIView animateWithDuration:0.5 animations:^{
+                self.view.transform = CGAffineTransformMakeRotation(0);
+            }];
+        }
+        else
+        {
+            self.isLandScape = YES;
+             backViewFrame = CGRectMake(0, 0, self.screenHeight, self.screenWidth);
+            if(_currentOrientation == UIDeviceOrientationLandscapeLeft)
+            {
+                [UIView animateWithDuration:0.5 animations:^{
+                    self.container.transform = CGAffineTransformMakeRotation(M_PI / 2);
+                }];
+            }
+            else
+            {
+                [UIView animateWithDuration:0.5 animations:^{
+                    self.container.transform = CGAffineTransformMakeRotation(- M_PI / 2);
+                }];
+            }
+        }
+        self.container.frame = CGRectMake(0, 0, self.screenWidth, self.screenHeight);
+        self.collectionView.frame = backViewFrame;
+        [_collectionView reloadData];
+    }
 }
-*/
 
 - (UIView *)container {
     if (!_container) {

@@ -18,6 +18,7 @@
 		810E275321E5EA4400C570FC /* ZJPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 810E275221E5EA4400C570FC /* ZJPhotoBrowser.m */; };
 		810E275521E5EEBF00C570FC /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 810E275421E5EEBF00C570FC /* Podfile */; };
 		810E275821E5F8DC00C570FC /* ZJBrowserCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 810E275721E5F8DC00C570FC /* ZJBrowserCollectionCell.m */; };
+		8195AD8521E71424003669B1 /* UIImage+ZJScale.m in Sources */ = {isa = PBXBuildFile; fileRef = 8195AD8421E71424003669B1 /* UIImage+ZJScale.m */; };
 		9E241B92E8C03F7859C07845 /* Pods_ZJBrowser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 137FFBA9018A62348493EDFD /* Pods_ZJBrowser.framework */; };
 /* End PBXBuildFile section */
 
@@ -44,6 +45,8 @@
 		810E275421E5EEBF00C570FC /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		810E275621E5F8DC00C570FC /* ZJBrowserCollectionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZJBrowserCollectionCell.h; sourceTree = "<group>"; };
 		810E275721E5F8DC00C570FC /* ZJBrowserCollectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZJBrowserCollectionCell.m; sourceTree = "<group>"; };
+		8195AD8321E71424003669B1 /* UIImage+ZJScale.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+ZJScale.h"; sourceTree = "<group>"; };
+		8195AD8421E71424003669B1 /* UIImage+ZJScale.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ZJScale.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +125,8 @@
 				810E275221E5EA4400C570FC /* ZJPhotoBrowser.m */,
 				810E275621E5F8DC00C570FC /* ZJBrowserCollectionCell.h */,
 				810E275721E5F8DC00C570FC /* ZJBrowserCollectionCell.m */,
+				8195AD8321E71424003669B1 /* UIImage+ZJScale.h */,
+				8195AD8421E71424003669B1 /* UIImage+ZJScale.m */,
 			);
 			path = browser;
 			sourceTree = "<group>";
@@ -248,6 +253,7 @@
 				810E275321E5EA4400C570FC /* ZJPhotoBrowser.m in Sources */,
 				810E273921E5E72900C570FC /* ViewController.m in Sources */,
 				810E274421E5E72A00C570FC /* main.m in Sources */,
+				8195AD8521E71424003669B1 /* UIImage+ZJScale.m in Sources */,
 				810E274C21E5E74100C570FC /* RootViewController.m in Sources */,
 				810E273621E5E72900C570FC /* AppDelegate.m in Sources */,
 				810E275821E5F8DC00C570FC /* ZJBrowserCollectionCell.m in Sources */,

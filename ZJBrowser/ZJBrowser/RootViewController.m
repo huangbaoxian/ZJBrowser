@@ -27,9 +27,11 @@
     // Do any additional setup after loading the view.
 //    [self initTableView];
 }
+//@"http://pic34.photophoto.cn/20150314/0034034877183417_b.jpg",
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     NSArray *array = @[@"http://www.pptbz.com/pptpic/UploadFiles_6909/201211/2012111719294197.jpg",
+                       
                        @"http://s14.sinaimg.cn/mw690/0070m3m6zy7oc0bQINvbd&690",
                        @"http://pic24.nipic.com/20121010/3798632_184253198370_2.jpg"
                        ];
@@ -43,7 +45,6 @@
     [vc updateZJBrowserWithPhotoArray:itemArray];
     [self.navigationController pushViewController:vc animated:YES];
     [vc reloadDataBrowser];
-    
 }
 
 #pragma mark - tableDelegate source
