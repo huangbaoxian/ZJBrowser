@@ -95,7 +95,7 @@
     if(cell)
     {
         if (self.dataArray.count > indexPath.row) {
-            [cell loadZJPhoto:self.dataArray[indexPath.row]];
+            [cell loadZJPhoto:self.dataArray[indexPath.row] screenWidth:self.screenWidth screenHeight:self.screenHeight];
         }
     }
     return cell;

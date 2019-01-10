@@ -41,7 +41,7 @@
 		810E274F21E5EA1600C570FC /* ZJPhoto.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZJPhoto.m; sourceTree = "<group>"; };
 		810E275121E5EA4400C570FC /* ZJPhotoBrowser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZJPhotoBrowser.h; sourceTree = "<group>"; };
 		810E275221E5EA4400C570FC /* ZJPhotoBrowser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZJPhotoBrowser.m; sourceTree = "<group>"; };
-		810E275421E5EEBF00C570FC /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		810E275421E5EEBF00C570FC /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		810E275621E5F8DC00C570FC /* ZJBrowserCollectionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZJBrowserCollectionCell.h; sourceTree = "<group>"; };
 		810E275721E5F8DC00C570FC /* ZJBrowserCollectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZJBrowserCollectionCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */

@@ -11,7 +11,7 @@
 
 @interface ZJBrowserCollectionCell : UICollectionViewCell
 
-- (void)loadZJPhoto:(ZJPhoto *)photo;
+- (void)loadZJPhoto:(ZJPhoto *)photo screenWidth:(CGFloat)width screenHeight:(CGFloat)height;
 
 @end
 
